@@ -11,9 +11,19 @@ const films = [
 ]
 
 const App = () => {
+  const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    console.log('search modificato');
+  }, [search])
   return (
     <div className="container">
       <h1 className='mb-4'>Lista Film</h1>
+      <select className="form-select mb-4" value={search} onChange={(e) => setSearch(e.target.value)}>
+        {films.map((film) => (
+          <option key={film.id} value={film.genre}>{film.genre}</option>
+        ))}
+      </select>
       <ul className="list-group mb-4">
         {films.map((film) => (
           <li key={film.id} className="list-group-item">
