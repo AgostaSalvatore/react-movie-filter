@@ -16,13 +16,14 @@ const App = () => {
 
   useEffect(() => {
     console.log('search modificato');
-    const filteredFilms = films.filter((film) => film.genre === search)
+    const filteredFilms = search === '' ? films : films.filter((film) => film.genre === search)
     setFilteredFilms(filteredFilms)
   }, [search])
   return (
     <div className="container">
       <h1 className='mb-4'>Lista Film</h1>
       <select className="form-select mb-4" value={search} onChange={(e) => setSearch(e.target.value)}>
+        <option value="">Tutti</option>
         {films.map((film) => (
           <option key={film.id} value={film.genre}>{film.genre}</option>
         ))}
