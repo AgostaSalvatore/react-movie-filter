@@ -17,6 +17,7 @@ const App = () => {
   useEffect(() => {
     console.log('search modificato');
     const filteredFilms = films.filter((film) => film.genre === search)
+    setFilteredFilms(filteredFilms)
   }, [search])
   return (
     <div className="container">
@@ -27,7 +28,7 @@ const App = () => {
         ))}
       </select>
       <ul className="list-group mb-4">
-        {films.map((film) => (
+        {filteredFilms.map((film) => (
           <li key={film.id} className="list-group-item">
             <p><b>Titolo:</b> {film.title}</p>
             <p><b>Genere:</b> {film.genre}</p>
