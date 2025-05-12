@@ -12,9 +12,11 @@ const films = [
 
 const App = () => {
   const [search, setSearch] = useState('')
+  const [filteredFilms, setFilteredFilms] = useState([])
 
   useEffect(() => {
     console.log('search modificato');
+    const filteredFilms = films.filter((film) => film.genre === search)
   }, [search])
   return (
     <div className="container">
