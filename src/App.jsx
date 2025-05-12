@@ -13,7 +13,15 @@ const films = [
 const App = () => {
   return (
     <div className="container">
-      <h1>Lista Film</h1>
+      <h1 className='mb-4'>Lista Film</h1>
+      <ul className="list-group mb-4">
+        {films.map((film) => (
+          <li key={film.id} className="list-group-item">
+            <p><b>Titolo:</b> {film.title}</p>
+            <p><b>Genere:</b> {film.genre}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
